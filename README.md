@@ -1,3 +1,17 @@
+# 森木メモ
+使用するサーバーによってMakefileの部分で引っかかるところがある。
+/home/moriki/PoseEstimation/Intra-and-Inter/lib/nms/setup_linux.py
+このPythonファイルのアーキテクチャ部分でエラーが出ることがあるので、エラーが出た場合はnvidia-smiで設定確認後、GPTとか使いながら調べるべきリンク先とか聞く
+
+具体的には下のような部分の'-arch=sm_61'ここが初期値は35だったけど、使ってるGPUによって変わる！
+ extra_compile_args={'gcc': ["-Wno-unused-function"],
+                            'nvcc': ['-arch=sm_61',
+                                     '--ptxas-options=-v',
+                                     '-c',
+                                     '--compiler-options',
+                                     "'-fPIC'"]},
+				     
+
 <h1 align="left">I²R-Net: Intra- and Inter-Human Relation Network for Multi-Person Pose Estimation<a href="https://arxiv.org/abs/2206.10892"><img src="https://img.shields.io/badge/arXiv-Paper-<COLOR>.svg" ></a> </h1> 
 
 [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/i-2r-net-intra-and-inter-human-relation/pose-estimation-on-coco)](https://paperswithcode.com/sota/pose-estimation-on-coco?p=i-2r-net-intra-and-inter-human-relation)
